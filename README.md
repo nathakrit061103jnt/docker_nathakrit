@@ -24,6 +24,12 @@ docker images
 ใช้ดู Images ที่มีในเครื่อง
 
 ```yml
+docker ps
+```
+
+ใช้ในการดู container ที่ทำงานอยู่
+
+```yml
 docker pull <ชื่อ image ที่ต้องการ pull>
 ```
 
@@ -46,3 +52,27 @@ docker rm <ชื่อของ container>
 ```
 
 ใช้ลบ container
+
+```yml
+docker stop <id หรือ ชื่อ ของ container ที่รันอยู่>
+```
+
+ใช้ในการ stop หรือหยุดการทำงานของ container
+
+## การ run container จาก docker images
+
+```yml
+docker run --name <ชื่อของ container ที่ต้องการตั้ง> -d -p <port ที่ต้องการให้ container run:port ปัจจุบันของ service นั้น ๆ> <ชื่อของ image ที่ทำการ pull มา หรือใช้ id ของ image ก็ได้>
+```
+
+### ตัวอย่างการ run docke image โดยจะทำการ ใช้ Image ของ nginx เพื่อให้บริการ web server
+
+```yml
+docker run --name some-nginx -d -p 8080:80 nginx
+```
+
+หรือ
+
+```yml
+docker run --name some-nginx -d -p 8080:80 b51b391571c1
+```
